@@ -14,6 +14,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build the blog image
+    - name: Build the blog image (onbuild)
       run: docker build -f ./Dockerfile.onbuild -t linkxsystem/site:onbuild .
+    - name: Build the blog image (latest )
       run: docker build -t linkxsystem/site:latest .
