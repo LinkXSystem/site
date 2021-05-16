@@ -1,0 +1,13 @@
+FROM node:14-buster
+
+LABEL maintainer="linkxsystem@gmail.com"
+
+RUN yarn global add gatsby-cli
+
+ONBUILD WORKDIR /app
+
+ONBUILD ADD . ./
+
+ONBUILD RUN yarn
+
+ONBUILD RUN gatsby build

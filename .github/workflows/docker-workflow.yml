@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Blog's Docker Workflow
 
 on:
   push:
@@ -14,5 +14,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - name: Build the blog image
+      run: docker build -f ./Dockerfile.onbuild -t linkxsystem/site:onbuild .
+      run: docker build -t linkxsystem/site:latest .
